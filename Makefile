@@ -9,8 +9,8 @@ prepare-certificates-for-travis:
 	security import dist.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
 	security import dist.p12 -k ~/Library/Keychains/ios-build.keychain -P '' -T /usr/bin/codesign
 	security set-key-partition-list -S apple-tool:,apple: -s -k travis ios-build.keychain
-	# mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-	# cp certificates/dist.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+	mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+	cp dist.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
 	security list-keychains -s ios-build.keychain
 	# security verify-cert -c dist.cer
 
