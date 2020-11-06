@@ -9,7 +9,6 @@ xcode_version: &xcode_version xcode12
 jobs:
   include:
     - name: 'deploygate'
-      if: type = push
       osx_image: *xcode_version
       install:
         - gem install fastlane
