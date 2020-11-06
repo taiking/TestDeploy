@@ -1,0 +1,16 @@
+
+stages:
+  - name: deploy-deploygate
+    if: branch = main
+
+xcode_version: &xcode_version xcode12
+
+jobs:
+  include:
+    - name: 'deploygate'
+      if: type = push
+      osx_image: *xcode_version
+      install:
+        - gem install fastlane
+      script:
+        - fastlane gym --project "TestDeploy.xcodeproj" --scheme "TestDeploy" --configuration "Release" --export_method "ad-hoc" --output_name "OutputDeploy"
