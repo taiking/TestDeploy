@@ -13,5 +13,7 @@ jobs:
       osx_image: *xcode_version
       install:
         - gem install fastlane
+        - make prepare-certificates-for-travis
       script:
         - fastlane gym --project "TestDeploy.xcodeproj" --scheme "TestDeploy" --configuration "Release" --export_method "ad-hoc" --output_name "OutputDeploy"
+      after_script: make clean-certificates-for-travis

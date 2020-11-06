@@ -88,3 +88,10 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# 証明書関連
+dist.cer
+dist.mobileprovision
+dist.p12
+wwdrg3.der
+secrets.tar
