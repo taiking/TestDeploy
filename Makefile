@@ -1,5 +1,4 @@
 prepare-certificates-for-travis:
-	tar xvf secrets.tar
 	security create-keychain -p travis ios-build.keychain
 	security default-keychain -s ios-build.keychain
 	security unlock-keychain -p travis ios-build.keychain
